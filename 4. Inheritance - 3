@@ -1,0 +1,45 @@
+
+public final class Hero extends People{
+	private String power;
+	private String weapon;
+	double attackPoint = Math.random()*100;
+	double defensePoint = Math.random()*100;
+	
+	Hero()
+	{
+		super();
+		power = "no power";
+		weapon = "no weapon";
+	}
+	
+	Hero(String name, int age, String nation)
+	{
+		this(name, age, nation, "no power", "no weapon");
+	}
+	
+	Hero(String name, int age, String power, String weapon)
+	{
+		super(name, age);
+		this.power = power;
+		this.weapon = weapon;
+	}
+	
+	Hero(String name, int age, String nation, String power, String weapon)
+	{
+		super(name, age, nation);
+		this.power = power;
+		this.weapon = weapon;
+	}
+	
+	//String name(){this.name = name;}
+	
+	public String toString(){return super.toString() + "\nPower : " + power + "\nWeapon : " 
+	                                          + weapon + "\nAttack : " + attackPoint + "\nDefense : " + defensePoint;}
+	
+	// 데이터 접근 메소드
+	public void get_power(String power) {this.power = power;}
+	public String set_power(){return power;}
+	
+	public void get_weapon(String weapon) {this.weapon = weapon;}
+	public String set_weapon(){return weapon;}
+}
