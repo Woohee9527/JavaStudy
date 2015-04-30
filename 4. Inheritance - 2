@@ -1,0 +1,35 @@
+
+public class People {
+	private String name;
+	private int age;
+	private String nation;
+	
+	People()
+	{
+		this("no name", 0, "no nation" );
+	}
+	
+	People(String name, int age)
+	{
+		this(name, age, "Korean");
+	}
+	
+	People(String name, int age, String nation)
+	{
+		this.name = name;
+		this.age = age;
+		this.nation = nation;
+	}
+	
+	public String toString(){return "Name : " + name + "\nAge : " + age + "\nNation : " + nation;}
+	
+	// 데이터 접근 메소드
+	public void get_name(String name) {this.name = name;}
+	public String set_name(){return name;}
+	
+	public void get_age(int age) {this.age = age;}
+	public int set_age(){return age;}
+	
+	public void get_nation(String nation) {this.nation = nation;}
+	public String set_nation(){return nation;}
+}
