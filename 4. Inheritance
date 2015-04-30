@@ -1,0 +1,109 @@
+
+public class HeroStory {
+	People[] p;
+	int n = 0;
+	Hero[] h;
+	Villain[] v;
+	
+	HeroStory()
+	{
+		p = new People[100];
+	}
+	
+	public static void main(String[] args) {
+		HeroStory hs = new HeroStory();
+		
+		hs.enter();
+		hs.print_people();
+		hs.fight();
+	}
+	
+	void enter()
+	{
+		h = new Hero[3];
+		h[0] = new Hero("Iron Man", 40, "American", "Arc atom", "Suit");
+		h[1] = new Hero("Herk", 45,  "Transform", "Body");
+		h[2] = new Hero("Superman", 38,  "British", "Super power", "Body");		
+		
+		v = new Villain[3];
+		v[0] = new Villain("A", 29, "Austrian", "powerA", "weaponA");
+		v[1] = new Villain("B", 66,  "powerB", "weponB");
+		v[2] = new Villain("C", 138,  "China", "powerC", "weaponC");
+		
+		for(int i = 0; i < h.length; i++)
+			p[n++] = h[i];
+		
+		for(int i = 0; i < v.length; i++)
+			p[n++] = v[i];
+		
+		//System.out.println("\n\n" + h[0].name() + "\n\n");
+	}
+	
+	void print_people()
+	{
+		System.out.println("<< Hero & Villain >>\n");
+		System.out.println("<<  Hero >>\n");
+		for(int i = 0; i < h.length; i++)
+		{
+			System.out.println(h[i]);
+			System.out.println("-------------------------------------");
+		}
+
+		System.out.println("\n<<  Villain  >>\n");
+		for(int i = 0; i < v.length; i++)
+		{
+			System.out.println(v[i]);
+			System.out.println("-------------------------------------");
+		}
+
+		System.out.println("-------------------------------------\n");
+	}
+	
+	void fight()
+	{		
+		System.out.println("<< Fight >>\n");
+		System.out.println("AttackPoint vs DefensePoint\n");
+		System.out.println("<Hero vs Villain>\n");
+		for(int i = 0; i < h.length; i++)
+			for(int j = 0; j < v.length; j++)
+				{
+					if(h[i].attackPoint >= v[j].defensePoint)
+					{
+						v[i].statement = true;
+						System.out.println(h[i].set_name() + " vs " + v[j].set_name());
+						System.out.println("Winner : " + h[i].set_name());
+						System.out.println(v[i].set_name()+"'s statement : " + v[i].state());
+						System.out.println("-------------------------------------");
+					}
+					else
+					{
+						v[i].statement = false;
+						System.out.println(h[i].set_name() + " vs " + v[j].set_name());
+						System.out.println("Loser : " + h[i].set_name());
+						System.out.println(v[i].set_name()+"'s statement : " + v[i].state());
+						System.out.println("-------------------------------------");
+					}
+				}
+		System.out.println("\n<Villain vs Hero>\n");
+		for(int i = 0; i < v.length; i++)
+			for(int j =0; j < h.length; j++)
+			{
+				if(v[i].attackPoint >= h[j].defensePoint)
+				{
+					v[i].statement = false;
+					System.out.println(v[i].set_name() + " vs " + h[j].set_name());
+					System.out.println("Winner : " + v[i].set_name());
+					System.out.println(v[i].set_name()+"'s statement : " + v[i].state());
+					System.out.println("-------------------------------------");
+				}
+				else
+				{
+					v[i].statement = true;
+					System.out.println(v[i].set_name() + " vs " + h[j].set_name());
+					System.out.println("Loser : " + v[i].set_name());
+					System.out.println(v[i].set_name()+"'s statement : " + v[i].state());
+					System.out.println("-------------------------------------");
+				}
+			}
+	}
+}
